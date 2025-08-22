@@ -10,14 +10,11 @@ let auth = async (req, res, next) => {
     return res.status(401).json({ error: "Access denied. No token provided." });
 
   try {
-    let decoded = await promisify(jwt.verify)(
-      token,
-      process.env.JWT_SECRET
-    );
+    let decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
     req.user = decoded;
     next();
   } catch (error) {
-    res.staus(401).json({ message: "Token verification failed." });
+    res.status(401).json({ message: "Token verification failed." });
   }
 };
 

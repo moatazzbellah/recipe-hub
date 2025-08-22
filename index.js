@@ -7,13 +7,14 @@ const cors = require("cors");
 dotenv.config();
 // server app
 const app = express();
-// routes
-const recipesRouter = require('./routes/recipes.route');
-app.use('/recipes', recipesRouter);
-
 // middlewares
 app.use(express.json());
 app.use(cors());
+// routes
+const recipesRouter = require("./routes/recipes.route");
+app.use("/recipes", recipesRouter);
+const userRouter = require("./routes/users.route");
+app.use("/users", userRouter);
 
 const port = process.env.PORT || 3333;
 mongoose

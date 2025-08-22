@@ -4,9 +4,9 @@ const {
   login,
   addToFavourites,
   removeFromFavourites,
-  getProfile
-} = require("../Controllers/Users.controller");
-const { auth } = require("../Middleware/auth");
+  getProfile,
+} = require("../controllers/users.controller");
+const { auth } = require("../middlewares/auth.middleware");
 
 const router = express.Router();
 
