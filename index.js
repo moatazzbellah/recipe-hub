@@ -1,10 +1,15 @@
+// dependencies import
 const dotenv = require("dotenv");
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+// accessing .env variables
 dotenv.config();
-
+// server app
 const app = express();
+// routes
+const recipesRouter = require('./routes/recipes.route');
+app.use('/recipes', recipesRouter);
 
 // middlewares
 app.use(express.json());
