@@ -1,0 +1,40 @@
+<div class="row">
+    @for(recipe of recipes; track recipe._id){
+    <div class="col-xl-3 col-md-4 p-2">
+        <a>
+            <div class="card overflow-hidden h-100 d-flex justify-content-between">
+                <div class="recipe-image overflow-hidden">
+                    <img [src]="recipe.Image"
+                        (error)="recipe.Image = 'assets/placeholder.png'"
+                        alt="{{recipe.Title}}" />
+                </div>
+                <h4 class="text-center m-auto p-2">
+                    {{recipe.Title.toUpperCase()}}
+                </h4>
+                <div class="pb-3 px-3 d-flex flex-column justify-content-between flex-grow-1">
+                    <div class="recipe-info mx-1">
+                        @if (recipe.Description.split(' ').length > 30) {
+                        <p>{{ recipe.Description.split(' ').slice(0, 30).join(' ') }}...</p>
+                        } @else {
+                        <p>{{ recipe.Description }}</p>
+                        }
+                    </div>
+                    <div class="ingredients d-flex flex-wrap">
+                        @for(ingredient of recipe.Ingredients.slice(0, 2); track $index){
+                            <span class="m-1 px-2">{{ingredient}}</span>
+                        }
+                        @if(recipe.Ingredients.length == 3){
+                        <span class="m-1 px-2">{{recipe.Ingredients[2]}}</span>
+                        }
+                        @else if(recipe.Ingredients.length > 3){
+                        <span class="m-1 px-2">+{{ recipe.Ingredients.length - 2 }} more</span>
+                        }
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+    }@empty{
+    <p>no recipes to show</p>
+    }
+</div>
