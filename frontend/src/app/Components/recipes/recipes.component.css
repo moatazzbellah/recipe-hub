@@ -1,30 +1,32 @@
-.recipe-image img{
-    width: 100%;
-     height: 200px;
-     object-fit: cover;
-     transition: transform linear .1s;
-}
-.card{
-    background-color: #FFF9F0;
-    color: #795548;
-    cursor: pointer;
-}
-h4{
-    color: #F5F5DC;
-    background-color: #4CAF50;
-    border-radius: 15px 0px 15px 0px;
-    font-weight: 700;
-    width: 85%;
-    transform: translateY(-50%);
+.recipe-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform linear 0.1s;
 }
 
-span{
-    background-color: #F5F5DC;
-    color: #4CAF50;
-    border-radius: 7px;
-    font-weight: 500;
+.card {
+  background-color: #fff9f0;
+  color: #795548;
+  cursor: pointer;
 }
 
-a:hover img{
-    transform: scale(1.1);
+h4 {
+  color: #f5f5dc;
+  background-color: #4caf50;
+  border-radius: 15px 0px 15px 0px;
+  font-weight: 700;
+  width: 85%;
+  transform: translateY(-50%);
+}
+
+span {
+  background-color: #f5f5dc;
+  color: #4caf50;
+  border-radius: 7px;
+  font-weight: 500;
+}
+
+a:hover img {
+  transform: scale(1.1);
 }
