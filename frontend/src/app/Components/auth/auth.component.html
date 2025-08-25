@@ -1,0 +1,36 @@
+<div class="auth-wrapper">
+  <div class="auth-card">
+    <h2>{{ isLogin ? 'Login' : 'Sign Up' }}</h2>
+
+    <form *ngIf="isLogin; else signupForm" (ngSubmit)="onLogin()">
+      <label>Email</label>
+      <input type="email" [(ngModel)]="loginEmail" name="loginEmail" required />
+
+      <label>Password</label>
+      <input type="password" [(ngModel)]="loginPassword" name="loginPassword" required />
+
+      <button type="submit" class="btn-primary">Login</button>
+      <p class="switch">Don't have an account? 
+        <a (click)="toggleMode()">Sign Up</a>
+      </p>
+    </form>
+
+    <ng-template #signupForm>
+      <form (ngSubmit)="onSignUp()">
+        <label>UserName</label>
+        <input type="text" [(ngModel)]="signupName" name="signupName" required />
+
+        <label>Email</label>
+        <input type="email" [(ngModel)]="signupEmail" name="signupEmail" required />
+
+        <label>Password</label>
+        <input type="password" [(ngModel)]="signupPassword" name="signupPassword" required />
+
+        <button type="submit" class="btn-primary">Sign Up</button>
+        <p class="switch">Already have an account? 
+          <a (click)="toggleMode()">Login</a>
+        </p>
+      </form>
+    </ng-template>
+  </div>
+</div>

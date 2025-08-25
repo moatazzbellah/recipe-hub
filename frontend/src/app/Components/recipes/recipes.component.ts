@@ -14,8 +14,11 @@ export class RecipesComponent implements OnInit {
   constructor(private recipesService: RecipesService) {}
 
   ngOnInit(): void {
+    const token = localStorage.getItem('token');
+  if (!token) {
     this.recipesService.getAllRecipes().subscribe((data) => {
       this.recipes = data;
     });
+  }
   }
 }
