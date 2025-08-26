@@ -1,3 +1,5 @@
+a{text-decoration: none !important;}
+
 .recipe-image img {
   width: 100%;
   height: 200px;
@@ -9,6 +11,22 @@
   background-color: #fff9f0;
   color: #795548;
   cursor: pointer;
+  box-sizing: border-box !important;
+}
+
+.card::after{
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 3px solid #4caf50;
+  border-radius: 0.375rem;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity linear 0.1s;
 }
 
 h4 {
@@ -29,4 +47,12 @@ span {
 
 a:hover img {
   transform: scale(1.1);
+}
+
+a:hover .card::after{
+  opacity: 1;
+}
+
+a:hover .card{
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.2);
 }

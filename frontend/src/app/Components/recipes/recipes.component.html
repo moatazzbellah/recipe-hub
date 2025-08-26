@@ -1,7 +1,7 @@
 <div class="row">
   @for (recipe of recipes; track recipe._id) {
   <div class="col-xl-3 col-md-4 p-2">
-    <a>
+    <a [routerLink]="['/recipes', recipe._id]">
       <div class="card overflow-hidden h-100 d-flex justify-content-between">
         <div class="recipe-image overflow-hidden">
           <img
