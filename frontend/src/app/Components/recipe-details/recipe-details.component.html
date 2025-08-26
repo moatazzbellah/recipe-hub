@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-xl-6 col-lg-5">
-        <div class="bg-info"><img [src]="recipe.Image" alt="recipe.Title" class="w-100"></div>
+        <div class="bg-info"><img [src]="recipe.Image" (error)="recipe.Image = 'assets/placeholder.png'" [alt]="recipe.Title" class="w-100"></div>
     </div>
     <div class="col-xl-5 col-lg-6 offset-lg-1">
         <h1 class="mb-0">{{recipe.Title}}</h1>
