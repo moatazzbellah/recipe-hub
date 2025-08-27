@@ -1,44 +1,56 @@
-<div class="auth-wrapper">
-  <div class="auth-card">
-    <h2>{{ isLogin ? 'Login' : 'Sign Up' }}</h2>
+<div class="row h-100 rounded-4">
+  <div class="col-lg-6">
+    <div class="auth-card p-5 rounded-5">
+      <h1 class="mb-4">{{ isLogin ? 'Login' : 'Sign Up' }}</h1>
 
-    
-    <form *ngIf="isLogin; else signupForm" (ngSubmit)="onLogin()">
-      <label>Email</label>
-      <input type="email" [(ngModel)]="loginEmail" name="loginEmail" required />
+      <form *ngIf="isLogin; else signupForm" (ngSubmit)="onLogin()">
+        <div class="form-group mb-3">
+          <label for="loginEmail">Email</label>
+          <input type="email" class="form-control" [(ngModel)]="loginEmail" name="loginEmail" id="loginEmail"
+            placeholder="Enter your Email" required />
+        </div>
+        <div class="form-group mb-3">
+          <label for="loginPassword">Password</label>
+          <input type="password" class="form-control" [(ngModel)]="loginPassword" name="loginPassword"
+            id="loginPassword" placeholder="Enter your Password" required />
+        </div>
 
-      <label>Password</label>
-      <input type="password" [(ngModel)]="loginPassword" name="loginPassword" required />
+        <p *ngIf="loginMessage" [ngClass]="loginSuccess ? 'success' : 'error'">{{ loginMessage }}</p>
 
-
-      <p *ngIf="loginMessage" [ngClass]="loginSuccess ? 'success' : 'error'">{{ loginMessage }}</p>
-
-      <button type="submit" class="btn-primary">Login</button>
-      <p class="switch">Don't have an account? 
-        <a (click)="toggleMode()">Sign Up</a>
-      </p>
-    </form>
-
-    <!-- Sign Up Form -->
-    <ng-template #signupForm>
-      <form (ngSubmit)="onSignUp()">
-        <label>UserName</label>
-        <input type="text" [(ngModel)]="signupName" name="signupName" required />
-
-        <label>Email</label>
-        <input type="email" [(ngModel)]="signupEmail" name="signupEmail" required />
-
-        <label>Password</label>
-        <input type="password" [(ngModel)]="signupPassword" name="signupPassword" required />
-
-        
-        <p *ngIf="signupMessage" [ngClass]="signupSuccess ? 'success' : 'error'">{{ signupMessage }}</p>
-
-        <button type="submit" class="btn-primary">Sign Up</button>
-        <p class="switch">Already have an account? 
-          <a (click)="toggleMode()">Login</a>
+        <button type="submit" class="p-1 rounded-2 mt-2 w-100">Login</button>
+        <p class="switch mt-1">Don't have an account?
+          <a (click)="toggleMode()">Sign Up</a>
         </p>
+
       </form>
-    </ng-template>
+
+      <!-- Sign Up Form -->
+      <ng-template #signupForm>
+        <form (ngSubmit)="onSignUp()">
+          <div class="form-group mb-3">
+            <label for="signupName">Username</label>
+            <input class="form-control" type="text" [(ngModel)]="signupName" id="signupName" name="signupName" placeholder="Enter your Username" required />
+          </div>
+          <div class="form-group mb-3">
+            <label for="signupEmail">Email</label>
+            <input class="form-control" type="email" [(ngModel)]="signupEmail" id="signupEmail" name="signupEmail" placeholder="Enter your Email" required />
+          </div>
+          <div class="form-group mb-3">
+            <label for="signupPassword">Password</label>
+            <input class="form-control" type="password" [(ngModel)]="signupPassword" id="signupPassword" name="signupPassword" placeholder="Enter your Password" required />
+          </div>
+
+          <p *ngIf="signupMessage" [ngClass]="signupSuccess ? 'success' : 'error'">{{ signupMessage }}</p>
+
+          <button type="submit" class="p-1 rounded-2 mt-2 w-100">Sign Up</button>
+          <p class="switch">Already have an account?
+            <a (click)="toggleMode()">Login</a>
+          </p>
+        </form>
+      </ng-template>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <img src="assets/login.png" alt="login image" class="w-100">
   </div>
 </div>

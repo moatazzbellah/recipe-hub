@@ -3,10 +3,28 @@ h1 {
     color: #4caf50;
     font-weight: 700;
 }
-h2{
+
+h2 {
     color: #4caf50;
 }
 
-span{
+span {
     color: #795548;
+}
+
+button {
+    background-color: #4caf50;
+    color: #f5f5dc;
+    border: #4caf50 2px solid !important;
+    font-weight: 600;
+    transition: all .1s linear;
+}
+
+button:hover {
+    color: #4caf50;
+    background-color: #F5F5DC;
+}
+
+button:active{
+    color: #4caf50 !important;
 }
