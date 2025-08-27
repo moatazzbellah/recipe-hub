@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipesService } from '../../Services/recipes.service';
 import { Recipe } from '../../Models/recipe';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-recipes',
   standalone: true,
+  imports: [RouterModule],
   templateUrl: './recipes.component.html',
   styleUrls: ['./recipes.component.css'],
 })

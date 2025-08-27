@@ -1,1 +1,21 @@
-<p>recipe-details works!</p>
+<div class="row">
+    <div class="col-xl-6 col-lg-5">
+        <div class="bg-info"><img [src]="recipe.Image" (error)="recipe.Image = 'assets/placeholder.png'" [alt]="recipe.Title" class="w-100"></div>
+    </div>
+    <div class="col-xl-5 col-lg-6 offset-lg-1">
+        <h1 class="mb-0">{{recipe.Title}}</h1>
+            @for (ingredient of recipe.Ingredients; track $index) {
+            <span class="me-1 fs-5">
+                {{ ingredient }}@if($index < recipe.Ingredients.length - 1){,}
+            </span>
+            }
+        <p class="lead py-3">{{recipe.Description}}</p>
+
+        <h2 class="fs-1">Instructions</h2>
+        <ol class="py-3">
+            @for (instruction of recipe.Instructions; track $index) {
+            <li class="lead py-2">{{instruction}}</li>
+            }
+        </ol>
+    </div>
+</div>
