@@ -22,6 +22,11 @@ export class AuthComponent {
   signupEmail = '';
   signupPassword = '';
 
+loginMessage: string = '';
+loginSuccess: boolean = false;
+
+signupMessage: string = '';
+signupSuccess: boolean = false;
   constructor(private authService: AuthService,private router: Router){}
   toggleMode() {
     this.isLogin = !this.isLogin;
@@ -30,16 +35,26 @@ export class AuthComponent {
   onLogin() {
   this.authService.login(this.loginEmail, this.loginPassword).subscribe({
     next: () => this.router.navigate(['/recipes']),
-    error: (err) => console.error('Signup error:', err)
-
+    error: (err) => { 
+      console.error('Signup error:', err)
+     this.loginSuccess = false;
+      this.loginMessage = 'Login failed: ' + err.error.message;
+    }
   });
 }
 
   onSignUp() {
     console.log('SignUp:', this.signupName, this.signupEmail, this.signupPassword);
       this.authService.signup(this.signupName, this.signupEmail, this.signupPassword).subscribe({
-      next: (res) => console.log('Signup success:', res),
-      error: (err) => console.error('Signup error:', err)
-    });
+      next: (res) =>{ 
+        console.log('Signup success:', res),
+        this.signupSuccess = true;
+        this.signupMessage = 'Sign up successful!';
+      },
+      error: (err) =>{ console.error('Signup error:', err)
+       this.signupSuccess = false;
+      this.signupMessage = 'Sign up failed: ' + err.error.message;
+      }
+      });
   }
 }

@@ -73,3 +73,15 @@ html, body {
 .switch a:hover {
   text-decoration: underline;
 }
+
+.success {
+  color: green;
+  margin: 5px 0;
+  font-weight: bold;
+}
+
+.error {
+  color: red;
+  margin: 5px 0;
+  font-weight: bold;
+}

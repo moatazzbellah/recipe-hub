@@ -2,6 +2,7 @@
   <div class="auth-card">
     <h2>{{ isLogin ? 'Login' : 'Sign Up' }}</h2>
 
+    
     <form *ngIf="isLogin; else signupForm" (ngSubmit)="onLogin()">
       <label>Email</label>
       <input type="email" [(ngModel)]="loginEmail" name="loginEmail" required />
@@ -9,12 +10,16 @@
       <label>Password</label>
       <input type="password" [(ngModel)]="loginPassword" name="loginPassword" required />
 
+
+      <p *ngIf="loginMessage" [ngClass]="loginSuccess ? 'success' : 'error'">{{ loginMessage }}</p>
+
       <button type="submit" class="btn-primary">Login</button>
       <p class="switch">Don't have an account? 
         <a (click)="toggleMode()">Sign Up</a>
       </p>
     </form>
 
+    <!-- Sign Up Form -->
     <ng-template #signupForm>
       <form (ngSubmit)="onSignUp()">
         <label>UserName</label>
@@ -25,6 +30,9 @@
 
         <label>Password</label>
         <input type="password" [(ngModel)]="signupPassword" name="signupPassword" required />
+
+        
+        <p *ngIf="signupMessage" [ngClass]="signupSuccess ? 'success' : 'error'">{{ signupMessage }}</p>
 
         <button type="submit" class="btn-primary">Sign Up</button>
         <p class="switch">Already have an account? 
