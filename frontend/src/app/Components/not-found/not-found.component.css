@@ -1,0 +1,28 @@
+img{
+    max-width: 320px;
+}
+
+p{
+    max-width: 700px;
+}
+
+a{
+    background-color: #4caf50;
+  color: #F5F5DC;
+  transition: all .1s linear;
+  border: 2px solid #4caf50;
+  font-weight: 600;
+
+}
+
+a:hover{
+  border-color: #4caf50;
+  background-color: #F5F5DC;
+  color: #4caf50;
+}
+
+a:active{
+  background-color: #4caf50 !important;
+  border-color: #4caf50 !important;
+  color: #F5F5DC !important;
+}
